@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -23,7 +23,7 @@ public class Curso {
     @NotNull(message = "O número de vagas deve ser maior que zero")
     private Integer vagas;
 
-    @OneToMany(cascade = CascadeType.REFRESH)
+    @ManyToMany(cascade = CascadeType.REFRESH)
     @JoinColumn(name="curso_id")
     List<Disciplina> disciplinas = new ArrayList<>();
     
